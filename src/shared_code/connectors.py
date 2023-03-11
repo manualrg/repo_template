@@ -37,11 +37,11 @@ def connection_client_factory(connection_kind: connectionsEnum, connection_name:
     elif connection_kind == connectionsEnum.AZBLOB:
         logger.warning(
             f"connection_kind: {connection_kind}. not implemented")
-        pass
+        client = None  # TODO
     elif connection_kind == connectionsEnum.GCS:
         logger.warning(
             f"connection_kind: {connection_kind}. not implemented")
-        pass
+        client = None  # TODO
     else:
         logger.warning(
             f"Unkwown connection_kind: {connection_kind}. Defaulting to")
@@ -111,7 +111,7 @@ class ConnectorClientAzBlob(ConnectorClientAbstract):
         self._client = None  # AzBlobClient
 
     def get_client(self):
-        pass
+        raise NotImplementedError()
 
 
 class ConnectorClientGCS(ConnectorClientAbstract):
@@ -121,7 +121,7 @@ class ConnectorClientGCS(ConnectorClientAbstract):
         self._client = None  # GCSClient
 
     def get_client(self):
-        pass
+        raise NotImplementedError()
 
 
 class DataConnectorAbstract(ABC):
@@ -209,10 +209,10 @@ class DataConnectorAzBlob(DataConnectorAbstract):
         self.path = path
 
     def get_data(self):
-       pass
+        raise NotImplementedError()
 
     def write_data(self, filename: Path) -> None:
-       pass
+        raise NotImplementedError()
 
 
 class DataConnectorGCS(DataConnectorAbstract):
@@ -223,10 +223,10 @@ class DataConnectorGCS(DataConnectorAbstract):
         self.path = path
 
     def get_data(self):
-        pass
+        raise NotImplementedError()
 
     def write_data(self, filename: Path) -> None:
-        pass
+        raise NotImplementedError()
 
 
 def data_connections_factory(data_asset: utils.DataAsset) -> DataConnectorAbstract:
@@ -251,12 +251,12 @@ def data_connections_factory(data_asset: utils.DataAsset) -> DataConnectorAbstra
     elif data_asset.kind == connectionsEnum.AZBLOB.value:
         logger.warning(
             f"connection: {data_asset.kind}. not implemented")
-        pass
+        connection = None  # TODO
 
     elif data_asset.kind == connectionsEnum.GCS.value:
         logger.warning(
             f"connection: {data_asset.kind}. not implemented")
-        pass
+        connection = None  # TODO
 
     else:
         logger.warning(f"unknown connection, returning local")
