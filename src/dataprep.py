@@ -1,6 +1,4 @@
-import pytest
-
-from src import 
+from src import example
 
 
 example.test_this_module()
