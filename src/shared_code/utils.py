@@ -45,6 +45,9 @@ def get_conf(path: Path = path_conf, filename: str = 'conf.yaml'):
 
 @dataclass
 class DataAsset:
+    """
+    Metadata associated to a given data asset
+    """
     name: str           # descriptive name
     kind: str           # from connections.connectionsEnum
     layer: str          # specific layer, see utils.data_paths

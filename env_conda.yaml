@@ -11,3 +11,5 @@ dependencies:
   - pyyaml
   - jupyterlab
   - pytest
+  - azure-storage-blob
+  - google-cloud-storage
