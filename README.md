@@ -38,6 +38,9 @@ packages = find:
   (run test/example.py and notebooks/01_example_imports.ipynb)
 
 # Folder Structure
+This template project folder structure is a modification from  cookiecutter datascience
+
+ <pre>
 /path/to/example/project/  
     ├── src/  
     │   ├── shared_code/   
@@ -53,7 +56,8 @@ packages = find:
     ├── env_conda.yaml    
     ├── README.md                    
     └── setup.cfg  
-    
+</pre>
+
 # Software Architecture
 This repo-template is based on cookie-cutter data science template and aims at filling the gap to work in a infrastructure-awareless schema
 
